@@ -1,1 +1,3 @@
-# Prácticas de la asignatura "Estructura de datos"
+# Estructura de datos
+
+Estas prácticas están realizadas individualmente por Javier Gálvez

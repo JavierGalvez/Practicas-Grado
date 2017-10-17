@@ -1,1 +1,3 @@
-# Prácticas de la asignatura "Metodología de la programación"
+# Metodología de la programación
+
+Estas prácticas están realizadas conjuntamente por Jávier Gálvez y Yábir García
