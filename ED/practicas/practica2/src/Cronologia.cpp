@@ -35,6 +35,8 @@ void Cronologia::add(const FechaHistorica& f){
   sort();
 }
 
+Cronologia::~Cronologia(){}
+
 bool Cronologia::find(const int yy, FechaHistorica& f){
   bool encontrado = false;
   int mid;

@@ -23,6 +23,8 @@ FechaHistorica::FechaHistorica(const FechaHistorica &f){
   eventos = f.eventos;
 }
 
+FechaHistorica::~FechaHistorica(){}
+
 int FechaHistorica::getYear(){
   return aa;
 }

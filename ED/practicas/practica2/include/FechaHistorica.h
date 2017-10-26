@@ -81,6 +81,11 @@ public:
 
   FechaHistorica(const FechaHistorica &f);
 
+  /**
+    * @brief Destructor de la clase
+    */
+
+  ~FechaHistorica();
 
   /**
     * @brief Método para obtener el año de la FechaHistorica

@@ -84,6 +84,12 @@ public:
   Cronologia(const Cronologia& c);
 
     /**
+      * @brief Destructor de la clase
+      */
+
+  ~Cronologia();
+
+    /**
       * @brief Método para añadir una FechaHistorica
       * @param f FechaHistorica a añadir
       */
