@@ -1,0 +1,134 @@
+\documentclass{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage[left=3cm,right=3cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage[document]{ragged2e}
+\usepackage{color}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+}
+
+\definecolor{background}{RGB}{246,246,246}
+
+\lstset{ %
+  backgroundcolor=\color{background},
+  language=c++,
+  directivestyle={\color{black}}
+}
+
+\begin{document}
+
+\title{\Huge ED - Reto 1}
+\author{\Large Javier Gálvez Obispo}
+\date{\large\today}
+\maketitle
+
+
+\begin{flushleft}
+{\large\textbf{1. Usando la notación O, determinar la eficiencia de los siguientes segmentos  de  código:}}
+
+\begin{lstlisting}
+int n,j; int i=1; int x=0;           |      int n,j; int i=2; int x=0;
+do{                                  |      do{
+	j=1;                         |      	j=1;
+	while (j <= n){              |      	while (j <= i){
+		j=j*2;               |      		j=j*2;
+		x++;                 |      		x++;
+	}                            |      	}
+	i++;                         |      	i++;
+}while (i<=n); 			     |	    }while (i<=n);
+\end{lstlisting}
+
+\vspace{\baselineskip}
+
+En el primer código tenemos:
+\begin{itemize}
+	\item Varias operaciones del orden O(1) que podemos ignorar.
+	\item Un bucle \textit{while}, con eficiencia O($log_{2}(n)$) ya que la variable \textit{j} se duplica en cada iteración.
+	\item Un bucle \textit{do-while} que se realiza n veces.
+\end{itemize}
+
+Por tanto el resultado es una eficiencia de O($n log_{2}(n)$) ya que al estar anidados
+los bucles multiplicamos las eficiencias de ambos.
+
+\vspace{\baselineskip} \vspace{\baselineskip}
+El segundo código se diferencia del primero en el bucle \textit{while} que
+también depende de \textit{i} para el número de itereaciones, por lo que se realizan $log_{2}(i)$ iteraciones.\\
+En este caso no podemos multiplicar las eficiencias de ambos bucles y para calcular la
+eficiencia del código debemos tratar al bucle \textit{do-while} como una sumatoria desde 1 hasta \textit{n}:
+
+	 $$\sum\limits_{i=1}^{n}{log_{2}(i)} = log_{2}{\prod\limits_{i=1}^{n}i} = log_{2}(n!)$$
+
+y utilizando las propiedades de los logaritmos llegamos a que la eficiencia del código es $log_{2}(n!)$
+
+\vspace{\baselineskip}
+\end{flushleft}
+
+\newpage
+\begin{flushleft}
+{\large\textbf{2. Para cada función $f(n)$ y cada tiempo \textit{t} de la tabla siguiente, determinar
+el mayor tamaño de un problema que puede ser resuelto en un tiempo \textit{t} (suponiendo que el
+algoritmo para resolver el problema tarda $f(n)$ microsegundos, es decir, $f(n) \cdot 10^{-6}$ sg).}}
+
+\vspace{\baselineskip}
+
+Tenemos la siguiente expresión:
+	$$f(n) = t \cdot 10^{6}$$
+y para cada $f(n)$ vamos a despejar \textit{n} para poder calcularlo a partir del tiempo.
+\end{flushleft}
+
+\begin{itemize}
+
+	\item $f(n) = log_{2}(n)$
+		$$log_{2}(n) = t \cdot 10^{6} \implies n = 2^{t \cdot 10^{6}}$$
+
+	\item $f(n) = n$
+		$$n = t \cdot 10^{6}$$
+
+	\item $f(n) = nlog_{2}(n)$ (No hay forma analítica en este caso.)
+		$$nlog_{2}(n) = t \cdot 10^{6}$$
+
+	\item $f(n) = n^{3}$
+		$$n^{3} = t \cdot 10^{6} \implies n = \sqrt[3]{t \cdot 10^{6}}$$
+
+	\item $f(n) = 2^{n}$
+		$$2^{n} = t \cdot 10^{6} \implies n = log_{2}(t \cdot 10^{6})$$
+
+	\item $f(n) = n!$ (No hay forma analítica en este caso.)
+		$$n! = t \cdot 10^{6}$$
+
+\end{itemize}
+\vspace{\baselineskip}
+
+\begin{flushleft}
+Obtenemos la siguiente tabla al sustituir \textit{t} por los valores que nos dicen:
+\newline
+(Para los cálculos se ha utilizado la página: \href{https://www.wolframalpha.com}{Wolfram Alpha})
+\end{flushleft}
+
+
+\begin{table}[!htbp]
+\centering
+\label{Tabla}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\multirow{2}{*}{$f(n)$}& \multicolumn{5}{l|}{\hfil$t$} \\ \cline{2-6}
+& 1 sg. & 1 h. & 1 semana & 1 año & 1000 años \\ \hline
+$log_{2}n$ &  $9.9 \cdot 10^{301029}$  &  $2^{3600 \cdot 10^{6}}$  &  $2^{6 \cdot 10^{12}}$  &  $2^{3.15\cdot 10^{13}}$  &  $2^{3.15\cdot 10^{16}}$ \\ \hline
+$n$ &  $10^{6}$  &  $3600 \cdot 10^{6} $  &  $6.04 \cdot 10^{12}$  &  $3.15 \cdot 10^{13}$  & $3.15 \cdot 10^{16}$  \\ \hline
+$nlog_{2}n$	&  $62746$  &  $1.33 \cdot 10^8$  &  $1.77 \cdot 10^{10}$  &  $7.97 \cdot 10^{11}$  &  $6.41 \cdot 10^{14}$ \\ \hline
+$n^3$	&  $100$  &  $1532$  &  $8456$  &  $31593$  & $315938$  \\ \hline
+$2^n$	&  $19$  &  $31$  & $39$   &  $44$  & $54$  \\ \hline
+$n!$	& $9$ &	$12$ & $14$ & $16$ & $18$ \\ \hline
+
+\end{tabular}
+\end{table}
+
+\end{document}
