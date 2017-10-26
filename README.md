@@ -2,9 +2,9 @@
 
 ## Javier Gálvez Obispo
 
-###	** 1º de carrera **
+###	 1º de carrera 
 	* [Metodología de la programación](MP)
 
-### ** 2º de carrera **
+###  2º de carrera 
 	* [Estructura de datos](ED)
 	
