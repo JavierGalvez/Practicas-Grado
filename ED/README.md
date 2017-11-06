@@ -8,3 +8,4 @@ Estructura de datos
 
 ### Retos
 *	[Reto 1: Eficiencia](retos/reto1/reto1.pdf)
+* [Reto 3: TDA lineales](retos/reto3)
