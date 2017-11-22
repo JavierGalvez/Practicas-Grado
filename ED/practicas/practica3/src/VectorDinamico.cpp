@@ -1,6 +1,6 @@
 /**
   * @file VectorDinamico.cpp
-  * @brief Implementación de la clase template VectorDinamico
+  * @brief Implementación del T.D.A VectorDinamico
   *
   */
 
@@ -65,21 +65,21 @@ void VectorDinamico<T>::resize(int m){
 }
 
 template<class T>
-void VectorDinamico<T>::push(const T& d){
+void VectorDinamico<T>::push(const T& val){
   if(n == c){
     if(c == 0)
       resize(1);
     else
       resize(c*2);
   }
-  datos[n] = d;
+  datos[n] = val;
   n++;
 }
 
 template<class T>
-void VectorDinamico<T>::insert(const int i,const T& d){
+void VectorDinamico<T>::insert(const int i,const T& val){
   assert(i >= 0 && i < n);
-  datos[i] = d;
+  datos[i] = val;
 }
 
 template<class T>

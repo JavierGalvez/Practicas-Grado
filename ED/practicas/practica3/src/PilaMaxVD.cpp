@@ -1,3 +1,9 @@
+/**
+  * @file PilaMaxVD.cpp
+  * @brief Implementación del T.D.A mstack (PilaMaxVD) usando el T.D.A VectorDinamico
+  *
+  */
+
 #include <cassert>
 
 template<class T>

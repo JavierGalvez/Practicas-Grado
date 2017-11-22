@@ -1,3 +1,9 @@
+/**
+  * @file PilaMaxCola.cpp
+  * @brief Implementación del T.D.A mstack (PilaMaxCola) usando el T.D.A Cola
+  *
+  */
+
 #include<cassert>
 
 template<class T>

@@ -1,6 +1,6 @@
 /**
-  * @file PruebaVector.cpp
-  * @brief Ejemplo de uso de la clase VectorDinamico
+  * @file pruebaVector.cpp
+  * @brief Ejemplo de uso del T.D.A VectorDinamico
   *
   */
 

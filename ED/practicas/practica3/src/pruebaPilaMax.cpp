@@ -1,3 +1,9 @@
+/**
+  * @file pruebaPilaMax.cpp
+  * @brief Ejemplo de uso del T.D.A mstack (PilaMax)
+  *
+  */
+
 #include <iostream>
 #include "PilaMax.h"
 

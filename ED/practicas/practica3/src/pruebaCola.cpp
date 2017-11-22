@@ -1,3 +1,9 @@
+/**
+  * @file pruebaCola.cpp
+  * @brief Ejemplo de uso del T.D.A Cola
+  *
+  */
+
 #include "Cola.h"
 #include<iostream>
 
