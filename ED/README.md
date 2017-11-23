@@ -5,6 +5,7 @@ Estructura de datos
 *	[Práctica 1: Eficiencia](practicas/practica1)
 *	[Práctica 2: Abstracción](practicas/practica2)
 *	[Práctica 3: Estructuras de datos lineales](practicas/practica3)
+*	[Práctica 4: STL e iteradores](practicas/practica4)
 
 ### Retos
 *	[Reto 1: Eficiencia](retos/reto1/reto1.pdf)
