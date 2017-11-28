@@ -140,6 +140,14 @@ class FechaHistorica{
 
 
     /**
+      * @brief Método que elimina un evento de la FechaHistorica
+      * @param it evento que se quiere borrar
+      */
+
+    void erase(iterator it);
+
+
+    /**
       * @brief Método que elimina todos los eventos de la FechaHistorica
       */
 

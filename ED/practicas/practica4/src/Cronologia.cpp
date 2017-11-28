@@ -33,6 +33,10 @@ void Cronologia::erase(const int year){
   datos.erase(year);
 }
 
+void Cronologia::erase(Cronologia::iterator it){
+  datos.erase(it);
+}
+
 void Cronologia::clear(){
   datos.clear();
 }
@@ -41,11 +45,15 @@ Cronologia::iterator Cronologia::find(const int year){
   return datos.find(year);
 }
 
-std::pair<Cronologia,bool> Cronologia::find(const std::string& str){
+Cronologia::const_iterator Cronologia::find(const int year) const{
+  return datos.find(year);
+}
+
+std::pair<Cronologia,bool> Cronologia::find(const std::string& str) const{
   std::pair<Cronologia,bool> ret;
   ret.second = false;
   Cronologia aux;
-  Cronologia::iterator it;
+  Cronologia::const_iterator it;
   for(it=begin(); it!=end(); ++it)
     if(it->second.find(str).second){
       aux.insert(it->second);
@@ -59,26 +67,26 @@ int Cronologia::size() const{
   return datos.size();
 }
 
-Cronologia Cronologia::interval(const int inf, const int sup){
+Cronologia Cronologia::interval(const int inf, const int sup) const{
   Cronologia c;
-  Cronologia::iterator itlow = datos.lower_bound(inf);
-  Cronologia::iterator itup = datos.upper_bound(sup);
-  Cronologia::iterator it;
+  Cronologia::const_iterator itlow = datos.lower_bound(inf);
+  Cronologia::const_iterator itup = datos.upper_bound(sup);
+  Cronologia::const_iterator it;
   for(it=itlow; it!=itup; ++it)
     c.insert(it->second);
   return c;
 }
 
-int Cronologia::totalEvents(){
+int Cronologia::totalEvents() const{
   int total = 0;
-  Cronologia::iterator it;
+  Cronologia::const_iterator it;
   for(it=begin(); it!=end(); ++it)
     total += it->second.size();
   return total;
 }
 
-int Cronologia::maxEvents(){
-  Cronologia::iterator it;
+int Cronologia::maxEvents() const{
+  Cronologia::const_iterator it;
   int max = 0;
   for(it=begin(); it!=end(); ++it)
     if(max < it->second.size())
@@ -86,8 +94,9 @@ int Cronologia::maxEvents(){
   return max;
 }
 
-double Cronologia::averageEvents(){
-  return totalEvents() / size();
+double Cronologia::averageEvents() const{
+  double aux = size();
+  return totalEvents() / aux;
 }
 
 FechaHistorica& Cronologia::at(const int year){

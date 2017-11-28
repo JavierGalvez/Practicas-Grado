@@ -125,6 +125,14 @@ class Cronologia{
 
 
     /**
+      * @brief Método que elimina una FechaHistorica de la Cronologia
+      * @param it FechaHistorica que se quiere borrar
+      */
+
+    void erase(iterator it);
+
+
+    /**
       * @brief Método que vacía la Cronologia
       */
 
@@ -142,6 +150,16 @@ class Cronologia{
 
 
     /**
+      * @brief Método que busca una FechaHistorica dado un año
+      * @param year año a buscar
+      * @return Cronologia::const_iterator a la FechaHistorica
+      * @post En caso de que no se encuentre el año devuelve un Cronologia::const_iterator a Cronologia::end()
+      */
+
+    const_iterator find(const int year) const;
+
+
+    /**
       * @brief Método para buscar eventos dada una palabra clave
       * @param str string con la palabra clave a buscar
       * @return pair siendo pair::first una nueva Cronologia con las FechasHistoricas que
@@ -152,7 +170,7 @@ class Cronologia{
       * @include PruebaFiltrado.cpp
       */
 
-    std::pair<Cronologia,bool> find(const std::string& str);
+    std::pair<Cronologia,bool> find(const std::string& str) const;
 
 
     /**
@@ -174,14 +192,14 @@ class Cronologia{
       * @include PruebaIntervalo.cpp
       */
 
-    Cronologia interval(const int inf, const int sup);
+    Cronologia interval(const int inf, const int sup) const;
 
 
     /**
       * @brief Método que devuelve el número de eventos en la Cronologia
       */
 
-    int totalEvents();
+    int totalEvents() const;
 
 
     /**
@@ -189,14 +207,14 @@ class Cronologia{
       *   registrados en un año
       */
 
-    int maxEvents();
+    int maxEvents() const;
 
 
     /**
       * @brief Método que devuelve la media de eventos por año
       */
 
-    double averageEvents();
+    double averageEvents() const;
 
 
     /**

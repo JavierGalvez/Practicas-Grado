@@ -37,13 +37,15 @@ int FechaHistorica::year() const{
 }
 
 std::pair<FechaHistorica::iterator,bool> FechaHistorica::insert(const std::string& str){
-  std::pair<FechaHistorica::iterator,bool> ret;
-  ret = datos.second.insert(str);
-  return ret;
+  return datos.second.insert(str);
 }
 
 void FechaHistorica::erase(std::string& str){
   datos.second.erase(str);
+}
+
+void FechaHistorica::erase(iterator it){
+  datos.second.erase(it);
 }
 
 void FechaHistorica::clear(){
@@ -54,7 +56,7 @@ std::pair<FechaHistorica,bool> FechaHistorica::find(const std::string& str) cons
   std::pair<FechaHistorica,bool> ret;
   ret.second = false;
   FechaHistorica aux(datos.first);
-  FechaHistorica::iterator it;
+  FechaHistorica::const_iterator it;
   for(it=begin(); it!=end(); ++it)
     if((*it).find(str) != -1){
       aux.insert((*it));

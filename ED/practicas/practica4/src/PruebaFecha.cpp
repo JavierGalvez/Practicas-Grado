@@ -28,6 +28,14 @@ int main(){
   std::cout << fecha1 << std::endl;
   // 2016
 
+  FechaHistorica::iterator it = fecha1.insert("Deadpool").first;
+  std::cout << fecha1 << std::endl;
+  // 2016#Deadpool
+
+  fecha1.erase(it);
+  std::cout << fecha1 << std::endl;
+  // 2016
+
   FechaHistorica fecha2(fecha);
   std::cout << fecha2.size() << std::endl;
   // 2
