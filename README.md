@@ -1,4 +1,4 @@
-# Doble Grado en Ingeniría Informática y Matemáticas
+# Grado en Ingeniría Informática
 
 ## Javier Gálvez Obispo
 
